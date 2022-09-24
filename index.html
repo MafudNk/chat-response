@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div> <h3 class="card-title d-flex align-items-center justify-content-center" style="color: black;">Ini adalah kesenangan semata :)</h3></div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><br><br><br><br>
+                <div class="card text-white bg-light" id="card1">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: black;">What's ur name?</h3>
+                        <div class="input-group mb-3">
+                            <input id="textname" type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" required>
+                        </div>
+                        <button onclick="getTextname()" class="btn btn-success">OK</button>
+                    </div>
+                </div>
+                <div class="card text-white bg-light" id="card2" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: black;" id="namaku"></h3>
+                        <button onclick="next2()" class="btn btn-success">OK</button>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-light" id="card3" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: black;" id="ask1"></h3>
+                        <div class="input-group mb-3">
+                            <input id="textdesc" type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" required>
+                        </div>
+                        <button onclick="next3()" class="btn btn-success">OK</button>
+                    </div>
+                </div>
+                <div class="card text-white bg-light" id="card4" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: black;" id="descku"></h3>
+                        <button onclick="next4()" class="btn btn-success">OK</button>
+                    </div>
+                </div>
+                <div class="card text-white bg-light" id="card5" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: black;" id="descku1"></h3>
+                        <button onclick="next5()" class="btn btn-success">OK</button>
+                    </div>
+                </div>
+                <div class="card text-white bg-light" id="card6" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: black;" id="descku2"></h3>
+                        <button onclick="next6()" class="btn btn-success">OK</button>
+                    </div>
+                </div>
+                <div class="card text-white bg-light" id="card7" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: black;" id="descku3"></h3>
+                        <button onclick="next7()" class="btn btn-success">OK</button>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-light" id="card8" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: black;" id="descku4"></h3>
+                        <button onclick="next8()" class="btn btn-success">OK</button>
+                    </div>
+                </div>
+                <div class="card text-white bg-light" id="card9" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color: black;" id="descku5"></h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
+
+    </div>
+</body>
+<script>
+    let nama = "";
+    let card = "";
+    let res1 = "";
+    let res2 = "";
+    let res3 = "";
+    let res4 = "";
+    let res5 = "";
+    document.getElementById("textname").required = true;
+    document.getElementById("textdesc").required = true;
+    function getTextname() {
+        nama = document.getElementById('textname').value;
+        var card1 = document.getElementById('card1');
+        var card2 = document.getElementById('card2');
+        if (card1.style.display == "none") {
+            card1.style.display = "block";
+            card2.style.display = "none";
+        } else {
+            card1.style.display = "none";
+            card2.style.display = "block";
+            document.getElementById('namaku').innerText = "Halooo " + nama;
+        }
+    }
+    function next2() {
+        var card2 = document.getElementById('card2');
+        var card3 = document.getElementById('card3');
+        document.getElementById('ask1').innerText = "So how are you " + nama + " ?";
+        if (card2.style.display == "block") {
+            card2.style.display = "none";
+            card3.style.display = "block";
+        }
+    }
+    function next3() {
+        var card3 = document.getElementById('card3');
+        var card4 = document.getElementById('card4');
+        quest = document.getElementById('textdesc').value;
+        if (quest.includes("fine") || quest.includes("baik") || quest.includes("oke") || quest.includes("nice")) {
+            res1 = "It's good that you're okay";
+            document.getElementById('descku').innerText = res1;
+            if (card3.style.display == "block") {
+                card3.style.display = "none";
+                next8();
+            }
+        } else {
+            res1 = "I know life is hard " + nama;
+            res2 = "but trust me everythings will be alright";
+            res3 = "just pray to god";
+            res4 = "tuhan akan membantumu everyday and everywhere <3 :)";
+            res5 = "cheer up have a nice day <3 :)";
+            document.getElementById('descku').innerText = res1;
+            if (card3.style.display == "block") {
+                card3.style.display = "none";
+                card4.style.display = "block";
+            }
+        }
+    }
+    function next4() {
+        var card4 = document.getElementById('card4');
+        var card5 = document.getElementById('card5');
+        document.getElementById('descku1').innerText = res2;
+        if (card4.style.display == "block") {
+            card4.style.display = "none";
+            card5.style.display = "block";
+        }
+    }
+    function next5() {
+        var card5 = document.getElementById('card5');
+        var card6 = document.getElementById('card6');
+        document.getElementById('descku2').innerText = res3;
+        if (card5.style.display == "block") {
+            card5.style.display = "none";
+            card6.style.display = "block";
+        }
+    }
+    function next6() {
+        var card6 = document.getElementById('card6');
+        var card7 = document.getElementById('card7');
+        document.getElementById('descku3').innerText = res4;
+        if (card6.style.display == "block") {
+            card6.style.display = "none";
+            card7.style.display = "block";
+        }
+    }
+    function next7() {
+        var card7 = document.getElementById('card7');
+        var card8 = document.getElementById('card8');
+        document.getElementById('descku4').innerText = res5;
+        if (card7.style.display == "block") {
+            card7.style.display = "none";
+            card8.style.display = "block";
+        }
+    }
+    function next8() {
+        var card8 = document.getElementById('card8');
+        var card9 = document.getElementById('card9');
+        if (card8.style.display == "block") {
+            card8.style.display = "none";
+            card9.style.display = "block";
+        }else{
+            card9.style.display = "block";
+        }
+        document.getElementById('descku5').innerText = "halaman akan menutup dalam 5 detik lagi :)";
+        setTimeout(function () {
+            window.location = "http://www.google.com";
+        }, 5000);
+    }
+</script>
+
+</html>
